@@ -2,9 +2,33 @@ from tkinter import *
 import tkinter.messagebox
 
 def doNothing():
-    print("Dupa!!!")
+    print("I do nothing")
+
+class Application(Frame):
+    def __init__(self, master):
+        super(Application, self).__init__(master)
+        self.grid()
+        self.bttn_clicks = 0
+        self.create_widget()
+
+    def create_widget(self):
+        self.bttn = Button(self)
+        self.bttn["text"] = "Liczba kliknięć: 0"
+        self.bttn["command"] = self.update_count
+        self.bttn.grid()
+
+    def update_count(self):
+        self.bttn_clicks += 1
+        self.bttn["text"] = "Liczba kliknięć: " + str(self.bttn_clicks)
+
+from tkinter import *
 
 root = Tk()
+root.title("Licznik kliknięć")
+root.geometry("225x100")
+
+
+app = Application(root)
 
 tkinter.messagebox.showinfo("Window title", "Modern Galápagos tortoises can weigh up to 417 kg.")
 
@@ -31,14 +55,5 @@ editMenu.add_command(label="Redo", command=doNothing)
 
 toolbar = Frame(root, bg="green")
 
-insertButt =  Button(toolbar, text="Insert Image", command=doNothing)
-insertButt.pack(side=LEFT, padx=2, pady=2)
-printButt =  Button(toolbar, text="Print", command=doNothing)
-printButt.pack(side=LEFT, padx=2, pady=2)
-
-toolbar.pack(side=TOP, fill=X)
-
-status = Label(root, text="Preparing to do nothing...", bd=1, relief=SUNKEN, anchor=W)
-status.pack(side=BOTTOM, fill=X)
 
 root.mainloop()
