@@ -15,24 +15,28 @@ class Application(Frame):
              text="Zaznacz wszystkie, które chciałbyś wybrać: "
              ).grid(row=1, column=0, sticky=W)
 
-        self.likes_comedy = BooleanVar()
-        Checkbutton(self,
+        self.favorite = StringVar()
+        self.favorite.set(" ")
+        Radiobutton(self,
                     text = "komedia",
-                    variable = self.likes_comedy,
+                    variable = self.favorite,
+                    value = "komedia",
                     command = self.update_text
                     ).grid(row = 2, column = 0, sticky = W)
 
-        self.likes_drama = BooleanVar()
-        Checkbutton(self,
+
+        Radiobutton(self,
                     text="dramat",
-                    variable=self.likes_drama,
+                    variable=self.favorite,
+                    value="dramat",
                     command=self.update_text
                     ).grid(row=3, column=0, sticky=W)
 
-        self.likes_romance = BooleanVar()
-        Checkbutton(self,
+
+        Radiobutton(self,
                     text="romans",
-                    variable=self.likes_romance,
+                    variable=self.favorite,
+                    value="romans",
                     command=self.update_text
                     ).grid(row=4, column=0, sticky=W)
 
@@ -40,18 +44,11 @@ class Application(Frame):
         self.results_txt.grid(row=5, column=0, columnspan=3)
 
     def update_text(self):
-        likes = ""
-        if self.likes_comedy.get():
-            likes += "Lubisz filmy komediowe. \n"
-
-        if self.likes_drama.get():
-            likes += "Lubisz dramaty filmowe. \n"
-
-        if self.likes_romance.get():
-            likes += "Lubisz filmy romantyczne. \n"
+        message = "Twoim ulubionym gatunkiem filmowym jest: "
+        message += self.favorite.get()
 
         self.results_txt.delete(0.0, END)
-        self.results_txt.insert(0.0, likes)
+        self.results_txt.insert(0.0, message)
 
 root = Tk()
 root.title("Wybór filmów")
