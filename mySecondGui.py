@@ -13,7 +13,7 @@ class Application(Frame):
         self.pw_lbl.grid(row=1, column=0, sticky=W)
         self.pw_ent = Entry(self)
         self.pw_ent.grid(row=1, column=1, sticky=W)
-        self.submit_bttn = Button(self, text = "Akceptuj", command = self.reveal)
+        self.submit_bttn = Button(self, text = "Accept", command = self.reveal)
         self.submit_bttn.grid(row=2, column=0, sticky=W)
         self.secret_txt = Text(self, width = 35, height = 5, wrap = WORD)
         self.secret_txt.grid(row = 3, column = 0, columnspan = 2, sticky = W)
