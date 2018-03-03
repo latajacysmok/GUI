@@ -13,18 +13,18 @@ class Application(Frame):
 
     def create_widget(self):
         self.bttn = Button(self)
-        self.bttn["text"] = "Liczba kliknięć: 0"
+        self.bttn["text"] = "Number of clicks: 0"
         self.bttn["command"] = self.update_count
         self.bttn.grid()
 
     def update_count(self):
         self.bttn_clicks += 1
-        self.bttn["text"] = "Liczba kliknięć: " + str(self.bttn_clicks)
+        self.bttn["text"] = "Number of clicks: " + str(self.bttn_clicks)
 
 from tkinter import *
 
 root = Tk()
-root.title("Licznik kliknięć")
+root.title("Number of clicks")
 root.geometry("225x100")
 
 
