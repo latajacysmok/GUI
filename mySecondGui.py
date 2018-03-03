@@ -7,7 +7,7 @@ class Application(Frame):
         self.create_widget()
 
     def create_widget(self):
-        self.inst_lbl = Label(self, text = "Wprowadź hasło do sekretu długowieczności")
+        self.inst_lbl = Label(self, text = "Enter the password for longevity")
         self.inst_lbl.grid(row = 0, column = 0, columnspan = 2, sticky = W)
         self.pw_lbl = Label(self, text="Hasło")
         self.pw_lbl.grid(row=1, column=0, sticky=W)
@@ -21,15 +21,15 @@ class Application(Frame):
     def reveal(self):
         contents = self.pw_ent.get()
         if contents == "okon":
-            message = "Oto tajemny przepis na dożycie 100 lat: dożyj 99 lat, a potem bądź BARDZO ostrożny."
+            message = "Here is the secret recipe for a 100-year life: live to be 99, and then be VERY careful."
 
         else:
-            message = "To nie jest poprawne hasło, więc nie mogę się z Tobą podzielić swoim sekretem"
+            message = "This is not the correct password, so I can not share my secret with you"
         self.secret_txt.delete(0.0, END)
         self.secret_txt.insert(0.0, message)
 
 root = Tk()
-root.title("Długowieczność")
+root.title("Longevity")
 root.geometry("300x150")
 
 app = Application(root)
